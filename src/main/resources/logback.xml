@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <contextName>xc-integration</contextName>
+    <property name="app.name" value="integration"/>
+    <property name="CONSOLE_LOG_PATTERN"
+              value="%date{HH:mm:ss.SSS} | %highlight(%-5level) | %boldYellow(%thread) | %boldGreen(%logger) | %msg%n"/>
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+    </appender>
+
+    <!-- https://www.iteye.com/blog/cgi-bin-2395647-->
+    <!--<appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        &lt;!&ndash;定义日志输出的路径&ndash;&gt;
+        &lt;!&ndash;这里的scheduler.manager.server.home 没有在上面的配置中设定，所以会使用java启动时配置的值&ndash;&gt;
+        &lt;!&ndash;比如通过 java -DpathToLog=/path/to XXXX 配置该属性&ndash;&gt;
+        <file>${pathToLog}/${app.name}.log</file>
+        &lt;!&ndash;定义日志滚动的策略&ndash;&gt;
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            &lt;!&ndash;定义文件滚动时的文件名的格式&ndash;&gt;
+            <fileNamePattern>${pathToLog}/${app.name}.%d{yyyy-MM-dd.HH}.log.gz
+            </fileNamePattern>
+            &lt;!&ndash;10天的时间周期，日志量最大5GB&ndash;&gt;
+            <maxHistory>10</maxHistory>
+            &lt;!&ndash; 该属性在 1.1.6版本后 才开始支持&ndash;&gt;
+            <totalSizeCap>5GB</totalSizeCap>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            &lt;!&ndash;每个日志文件最大512M&ndash;&gt;
+            <maxFileSize>512MB</maxFileSize>
+        </triggeringPolicy>
+        &lt;!&ndash;定义输出格式&ndash;&gt;
+        <encoder>
+            <pattern>%d [%thread] %-5level %logger{36} [%file : %line] - %msg%n</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>-->
+
+    <logger name="com.example.companion" additivity="false" level="debug">
+        <appender-ref ref="console"/>
+        <!--<appender-ref ref="file"/>-->
+    </logger>
+
+    <logger name="com.example.companion.mapper" level="Debug"/>
+
+    <root level="info">
+        <appender-ref ref="console"/>
+        <!--<appender-ref ref="file"/>-->
+    </root>
+
+</configuration>

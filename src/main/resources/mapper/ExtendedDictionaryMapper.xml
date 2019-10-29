@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.companion.mapper.ExtendedDictionaryMapper">
+    <resultMap id="recordMap" type="com.example.companion.entity.result.RecordVO">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="icon" column="icon"/>
+        <collection property="list" ofType="com.example.companion.entity.result.RecordVO$ChildRecordVO">
+            <id column="childId" property="id"/>
+            <result property="name" column="childName"/>
+            <result property="icon" column="childIcon"/>
+            <result property="typeId" column="typeId"/>
+        </collection>
+    </resultMap>
+    <select id="types2" resultMap="recordMap">
+              SELECT
+            enum_type.id,
+            enum_type. name,
+            enum_type.icon,
+            enum.id childId,
+            enum. NAME childName,
+            enum.icon childIcon,
+            enum.type_id typeId
+        FROM
+            enum_type
+        INNER JOIN enum ON enum.type_id = enum_type.id
+    </select>
+</mapper>

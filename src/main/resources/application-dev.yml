@@ -1,0 +1,31 @@
+server:
+  port: 9999
+# DataSource Config
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/companion2?characterEncoding=utf-8&allowMultiQueries=true
+    username: root
+    password: root
+  #配置连接池 预计使用内置的hikari
+  #配置redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+
+#自定义配置
+wechat:
+  appId: wx45af8672584f68c2
+  secret: d83cd8aa4b5011c7345dff51738cf4cf
+  accessTokenUrl: https://api.weixin.qq.com/sns/oauth2/access_token
+  refreshTokenUrl: https://api.weixin.qq.com/sns/oauth2/refresh_token
+  userInfoUrl: https://api.weixin.qq.com/sns/userinfo
+  loginUrl: https://api.weixin.qq.com/sns/jscode2session
+token:
+    issuer: boot.relaxu.top
+    audience: companion
+    secret: xcloveszj
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
