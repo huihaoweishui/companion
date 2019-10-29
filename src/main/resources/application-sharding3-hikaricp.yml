@@ -7,13 +7,13 @@ sharding:
       db-test0: #org.apache.tomcat.jdbc.pool.DataSource
         type: com.zaxxer.hikari.HikariDataSource
         driverClassName: com.mysql.jdbc.Driver
-        jdbcUrl: jdbc:mysql://rm-8vbunk5pgvx23z223.mysql.zhangbei.rds.aliyuncs.com:3306/hello?characterEncoding=utf-8&allowMultiQueries=true
+        jdbcUrl: jdbc:mysql://rm-8vbunk5pgvx23z223.mysql.zhangbei.rds.aliyuncs.com:3306/companion?characterEncoding=utf-8&allowMultiQueries=true
         username: general
         password: General123456$
       db-test1: # 配置第一个从库
         type: com.zaxxer.hikari.HikariDataSource
         driverClassName: com.mysql.jdbc.Driver
-        jdbcUrl: jdbc:mysql://127.0.0.1:3306/hello?characterEncoding=utf-8&allowMultiQueries=true
+        jdbcUrl: jdbc:mysql://127.0.0.1:3306/companion?characterEncoding=utf-8&allowMultiQueries=true
         username: root
         password: Xc123456$
     config:
