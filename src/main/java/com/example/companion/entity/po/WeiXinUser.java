@@ -23,6 +23,10 @@ public class WeiXinUser {
 
     private String language;
 
+    private String companionOpenId;
+
+    private Date loveTime;
+
     private Date createTime;
 
     private Date updateTime;
@@ -105,6 +109,22 @@ public class WeiXinUser {
 
     public void setLanguage(String language) {
         this.language = language == null ? null : language.trim();
+    }
+
+    public String getCompanionOpenId() {
+        return companionOpenId;
+    }
+
+    public void setCompanionOpenId(String companionOpenId) {
+        this.companionOpenId = companionOpenId == null ? null : companionOpenId.trim();
+    }
+
+    public Date getLoveTime() {
+        return loveTime;
+    }
+
+    public void setLoveTime(Date loveTime) {
+        this.loveTime = loveTime;
     }
 
     public Date getCreateTime() {

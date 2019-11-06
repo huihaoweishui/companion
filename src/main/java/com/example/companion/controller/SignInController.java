@@ -26,6 +26,7 @@ public class SignInController {
 
     @Autowired
     private IWeiXinUserService userService;
+
     @Autowired
     private WeChatConfig weChatConfig;
 

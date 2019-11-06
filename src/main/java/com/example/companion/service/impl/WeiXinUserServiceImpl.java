@@ -1,14 +1,19 @@
 package com.example.companion.service.impl;
 
+import com.example.companion.entity.param.UserDO;
 import com.example.companion.entity.po.WeiXinUser;
 import com.example.companion.entity.po.WeiXinUserExample;
+import com.example.companion.entity.result.UserVO;
+import com.example.companion.exception.CompanionException;
 import com.example.companion.mapper.WeiXinUserMapper;
 import com.example.companion.service.IWeiXinUserService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,6 +26,57 @@ import java.util.List;
 public class WeiXinUserServiceImpl implements IWeiXinUserService {
     @Autowired
     private WeiXinUserMapper userMapper;
+
+    @Override
+    @Transactional
+    public void updateUserInfo(UserDO userDO) {
+        String openId = userDO.getOpenId();
+        if (!StringUtils.isEmpty(openId)) {
+            WeiXinUser user = userMapper.selectByPrimaryKey(openId);
+            BeanUtils.copyProperties(userDO, user);
+            userMapper.updateByPrimaryKeySelective(user);
+        }
+    }
+
+    @Override
+    @Transactional
+    public void bindPartner(String openId, String companionOpenId) throws CompanionException {
+        Date loveDay = new Date();
+        WeiXinUser user = userMapper.selectByPrimaryKey(openId);
+        if (user != null && StringUtils.isEmpty(user.getCompanionOpenId())) {
+            user.setCompanionOpenId(companionOpenId);
+            user.setLoveTime(loveDay);
+            userMapper.updateByPrimaryKeySelective(user);
+            WeiXinUser user1 = userMapper.selectByPrimaryKey(companionOpenId);
+            if (user1 != null) {
+                user1.setCompanionOpenId(openId);
+                user1.setLoveTime(loveDay);
+                userMapper.updateByPrimaryKeySelective(user1);
+            }
+        } else {
+            throw new CompanionException("你来晚一步，对方已经有心仪的对象了");
+        }
+    }
+
+    @Override
+    public UserVO getCompanion(String openId) {
+        UserVO vo = null;
+        WeiXinUser user = userMapper.selectByPrimaryKey(openId);
+        if (user != null) {
+            String companionOpenId = user.getCompanionOpenId();
+            if (!StringUtils.isEmpty(companionOpenId)) {
+                WeiXinUser companion = userMapper.selectByPrimaryKey(companionOpenId);
+                if (companion != null) {
+                    vo = new UserVO();
+                    vo.setAvatarUrl(companion.getAvatarUrl());
+                    vo.setNickName(companion.getNickName());
+                    vo.setLoveDay(companion.getLoveTime());
+                    vo.setGender(companion.getGender() == 0 ? "妖" : (companion.getGender() == 1 ? "他" : "她"));
+                }
+            }
+        }
+        return vo;
+    }
 
     @Override
     @Transactional
