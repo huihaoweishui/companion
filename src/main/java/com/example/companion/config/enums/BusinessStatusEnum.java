@@ -7,7 +7,7 @@ package com.example.companion.config.enums;
  * @description 业务代码
  */
 public enum BusinessStatusEnum {
-    EXPECT(0,"按预期返回");
+    EXPECT(0,"按预期返回"),ERROR(1,"发生异常");
 
     private int code;
 

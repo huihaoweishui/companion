@@ -28,6 +28,10 @@ public class CommonServerResponseDTO<T> {
         return new CommonServerResponseDTO(BusinessStatusEnum.EXPECT.getCode(), "预期返回", data);
     }
 
+    public static <T> CommonServerResponseDTO error(String message) {
+        return new CommonServerResponseDTO(BusinessStatusEnum.ERROR.getCode(), message, null);
+    }
+
     public static <T> CommonServerResponseDTO defineAll(int status, String message, T data) {
         return new CommonServerResponseDTO(status, message, data);
     }

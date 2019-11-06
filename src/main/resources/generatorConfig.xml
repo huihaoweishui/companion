@@ -42,20 +42,12 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table tableName="enum" domainObjectName="Dictionary" enableCountByExample="true"
+        <table tableName="weixin_user" domainObjectName="WeiXinUser" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
                enableUpdateByPrimaryKey="true">
             <property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-
-        <table tableName="enum_type" domainObjectName="DictionaryType" enableCountByExample="true"
-               enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
-               enableUpdateByPrimaryKey="true">
-            <property name="useActualColumnNames" value="false"/>
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
-
         <!--<table tableName="finance" domainObjectName="Finance" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
                enableUpdateByPrimaryKey="true">
@@ -70,12 +62,7 @@
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
 
-        <table tableName="weixin_user" domainObjectName="WeiXinUser" enableCountByExample="true"
-               enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
-               enableUpdateByPrimaryKey="true">
-            <property name="useActualColumnNames" value="false"/>
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>-->
+        -->
 
 
     </context>

@@ -795,6 +795,136 @@ public class WeiXinUserExample {
             return (Criteria) this;
         }
 
+        public Criteria andCompanionOpenIdIsNull() {
+            addCriterion("companion_open_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanionOpenIdIsNotNull() {
+            addCriterion("companion_open_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanionOpenIdEqualTo(String value) {
+            addCriterion("companion_open_id =", value, "companionOpenId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanionOpenIdNotEqualTo(String value) {
+            addCriterion("companion_open_id <>", value, "companionOpenId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanionOpenIdGreaterThan(String value) {
+            addCriterion("companion_open_id >", value, "companionOpenId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanionOpenIdGreaterThanOrEqualTo(String value) {
+            addCriterion("companion_open_id >=", value, "companionOpenId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanionOpenIdLessThan(String value) {
+            addCriterion("companion_open_id <", value, "companionOpenId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanionOpenIdLessThanOrEqualTo(String value) {
+            addCriterion("companion_open_id <=", value, "companionOpenId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanionOpenIdLike(String value) {
+            addCriterion("companion_open_id like", value, "companionOpenId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanionOpenIdNotLike(String value) {
+            addCriterion("companion_open_id not like", value, "companionOpenId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanionOpenIdIn(List<String> values) {
+            addCriterion("companion_open_id in", values, "companionOpenId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanionOpenIdNotIn(List<String> values) {
+            addCriterion("companion_open_id not in", values, "companionOpenId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanionOpenIdBetween(String value1, String value2) {
+            addCriterion("companion_open_id between", value1, value2, "companionOpenId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanionOpenIdNotBetween(String value1, String value2) {
+            addCriterion("companion_open_id not between", value1, value2, "companionOpenId");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoveTimeIsNull() {
+            addCriterion("love_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoveTimeIsNotNull() {
+            addCriterion("love_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoveTimeEqualTo(Date value) {
+            addCriterion("love_time =", value, "loveTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoveTimeNotEqualTo(Date value) {
+            addCriterion("love_time <>", value, "loveTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoveTimeGreaterThan(Date value) {
+            addCriterion("love_time >", value, "loveTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoveTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("love_time >=", value, "loveTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoveTimeLessThan(Date value) {
+            addCriterion("love_time <", value, "loveTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoveTimeLessThanOrEqualTo(Date value) {
+            addCriterion("love_time <=", value, "loveTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoveTimeIn(List<Date> values) {
+            addCriterion("love_time in", values, "loveTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoveTimeNotIn(List<Date> values) {
+            addCriterion("love_time not in", values, "loveTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoveTimeBetween(Date value1, Date value2) {
+            addCriterion("love_time between", value1, value2, "loveTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoveTimeNotBetween(Date value1, Date value2) {
+            addCriterion("love_time not between", value1, value2, "loveTime");
+            return (Criteria) this;
+        }
+
         public Criteria andCreateTimeIsNull() {
             addCriterion("create_time is null");
             return (Criteria) this;
