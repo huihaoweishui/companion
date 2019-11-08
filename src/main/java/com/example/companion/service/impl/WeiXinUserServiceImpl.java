@@ -72,6 +72,9 @@ public class WeiXinUserServiceImpl implements IWeiXinUserService {
                     vo.setNickName(companion.getNickName());
                     vo.setLoveDay(companion.getLoveTime());
                     vo.setGender(companion.getGender() == 0 ? "妖" : (companion.getGender() == 1 ? "他" : "她"));
+                    Date nowDate = new Date();
+                    double togetherDays = Math.ceil(Double.valueOf((nowDate.getTime() - companion.getLoveTime().getTime()) + ""));
+                    vo.setTogetherDay((short) (togetherDays == 0 ? 1 : togetherDays));
                 }
             }
         }

@@ -20,4 +20,6 @@ public class UserVO {
     private String gender;
 
     private Date loveDay;
+
+    private short togetherDay;
 }
